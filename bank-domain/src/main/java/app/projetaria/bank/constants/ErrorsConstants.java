@@ -14,4 +14,8 @@ public class ErrorsConstants {
     public static final String ACCOUNT_CREDIT_IS_REQUIRED = "A conta de crédito para efetuar a transferência é obrigatória";
 
     public static final String ACCOUNT_NOT_FOUND = "Conta inexistente";
+    public static final String ACCOUNT_DEBIT_NOT_FOUND = "Conta de débito inexistente";
+    public static final String ACCOUNT_CREDIT_NOT_FOUND = "Conta de crédito inexistente";
+
+    public static final String TRANSFER_SAME_ACCOUNT_IS_NOT_AUTHORIZED = "Uma transferência não pode ser efetuada para a mesma conta";
 }

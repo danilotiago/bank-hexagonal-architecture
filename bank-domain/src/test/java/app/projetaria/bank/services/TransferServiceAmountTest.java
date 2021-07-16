@@ -14,15 +14,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("Regras de transferência entre contas")
-public class TransferAmountTest {
+public class TransferServiceAmountTest {
 
-    private Transfer transfer;
+    private TransferService transferService;
     private Account debit;
     private Account credit;
 
     @BeforeEach
     public void prepareBefore() {
-        this.transfer = new Transfer();
+        this.transferService = new TransferService();
         this.debit = new Account(1, BigDecimal.TEN, "Um cliente qualquer");
         this.credit = new Account(2, BigDecimal.TEN, "Um outro cliente qualquer");
     }
@@ -32,7 +32,7 @@ public class TransferAmountTest {
     void shouldBeThrowsBusinessException_whenNullableTransferAmountValue() {
 
         BusinessException businessException = assertThrows(BusinessException.class,
-                () -> this.transfer.transferAmount(null, debit, credit));
+                () -> this.transferService.transferAmount(null, debit, credit));
 
         assertEquals(businessException.getMessage(), ErrorsConstants.TRANSFER_VALUE_IS_REQUIRED);
     }
@@ -42,7 +42,7 @@ public class TransferAmountTest {
     void shouldBeThrowsBusinessException_whenZeroTransferAmountValue() {
 
         BusinessException businessException = assertThrows(BusinessException.class,
-                () -> this.transfer.transferAmount(BigDecimal.ZERO, debit, credit));
+                () -> this.transferService.transferAmount(BigDecimal.ZERO, debit, credit));
 
         assertEquals(businessException.getMessage(), ErrorsConstants.TRANSFER_VALUE_IS_LESS_OR_EQUAL_THAN_ZERO);
     }
@@ -52,7 +52,7 @@ public class TransferAmountTest {
     void shouldBeThrowsBusinessException_whenNullableDebitAccount() {
 
         BusinessException businessException = assertThrows(BusinessException.class,
-                () -> this.transfer.transferAmount(BigDecimal.ONE, null, credit));
+                () -> this.transferService.transferAmount(BigDecimal.ONE, null, credit));
 
         assertEquals(businessException.getMessage(), ErrorsConstants.ACCOUNT_DEBIT_IS_REQUIRED);
     }
@@ -62,19 +62,19 @@ public class TransferAmountTest {
     void shouldBeThrowsBusinessException_whenNullableCreditAccount() {
 
         BusinessException businessException = assertThrows(BusinessException.class,
-                () -> this.transfer.transferAmount(BigDecimal.ONE, debit, null));
+                () -> this.transferService.transferAmount(BigDecimal.ONE, debit, null));
 
         assertEquals(businessException.getMessage(), ErrorsConstants.ACCOUNT_CREDIT_IS_REQUIRED);
     }
 
     @Test
     @DisplayName("Verifica se uma transferência entre contas é feita com sucesso")
-    void shouldBeTransferAmountBetweenAccounts_whenHasValidValues() {
+    void shouldBeTransferAmountBetweenAccounts() {
 
         BigDecimal finalBalanceDebitAccount = BigDecimal.valueOf(3.0);
         BigDecimal finalBalanceCreditAccount = BigDecimal.valueOf(17.0);
 
-        this.transfer.transferAmount(BigDecimal.valueOf(7.0), debit, credit);
+        this.transferService.transferAmount(BigDecimal.valueOf(7.0), debit, credit);
 
         assertTrue(debit.getBalance().compareTo(finalBalanceDebitAccount) == 0);
         assertTrue(credit.getBalance().compareTo(finalBalanceCreditAccount) == 0);

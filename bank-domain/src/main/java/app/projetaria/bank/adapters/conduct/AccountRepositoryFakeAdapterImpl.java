@@ -1,11 +1,13 @@
-package app.projetaria.bank.adapters;
+package app.projetaria.bank.adapters.conduct;
 
 import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
-import app.projetaria.bank.ports.AccountRepository;
+import app.projetaria.bank.ports.conduct.AccountRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -13,6 +15,8 @@ import java.util.Map;
 
 import static java.util.Objects.isNull;
 
+@Profile({"test"})
+@Repository
 public class AccountRepositoryFakeAdapterImpl implements AccountRepository {
 
     private static final Logger logger = LogManager.getLogger(AccountRepositoryFakeAdapterImpl.class);

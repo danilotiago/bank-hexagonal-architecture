@@ -76,7 +76,7 @@ public class DebitTest {
 
     @Test
     @DisplayName("Vefirica se um débito é feito com sucesso na conta com um valor igual ao saldo")
-    void shouldBeDebitAccount_whenValidDebitEqualThanBalance() {
+    void shouldBeDebitAccount() {
 
         BigDecimal finalBalance = BigDecimal.ZERO;
 

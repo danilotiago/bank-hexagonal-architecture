@@ -5,6 +5,7 @@ import app.projetaria.bank.exceptions.BusinessException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 
@@ -55,7 +56,7 @@ public class CreditTest {
 
     @Test
     @DisplayName("Verifica se um crédito é feito com sucesso na conta")
-    void shouldBeCreditAccount_whenPositiveCreditValue() {
+    void shouldBeCreditAccount() {
 
         BigDecimal finalBalance = BigDecimal.valueOf(11.0);
 

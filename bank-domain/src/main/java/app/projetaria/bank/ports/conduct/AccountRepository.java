@@ -1,4 +1,4 @@
-package app.projetaria.bank.ports;
+package app.projetaria.bank.ports.conduct;
 
 import app.projetaria.bank.domain.Account;
 
