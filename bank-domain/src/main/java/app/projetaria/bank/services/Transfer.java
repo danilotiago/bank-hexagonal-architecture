@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import static java.util.Objects.isNull;
 
 @Component
-public class TransferAmountsBetweenAccounts {
+public class Transfer {
 
     public void transferAmount(BigDecimal value, Account debit, Account credit) {
 
