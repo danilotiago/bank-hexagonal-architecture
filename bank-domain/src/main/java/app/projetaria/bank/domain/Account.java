@@ -32,7 +32,7 @@ public class Account {
         }
 
         if (value.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new BusinessException(ErrorsConstants.CREDIT_VALUE_IS_LESS_THAN_OR_ZERO);
+            throw new BusinessException(ErrorsConstants.TRANSFER_VALUE_IS_LESS_OR_EQUAL_THAN_ZERO);
         }
 
         balance = balance.add(value);

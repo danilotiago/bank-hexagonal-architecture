@@ -99,6 +99,7 @@
 	<modules>
 		<module>bank-application</module>
 		<module>bank-domain</module>
+		<module>bank-services</module>
 	</modules>
 
 </project>

@@ -40,7 +40,7 @@ public class CreditTest {
         BusinessException businessException = assertThrows(BusinessException.class,
                 () -> this.account.credit(BigDecimal.ZERO));
 
-        assertEquals(businessException.getMessage(), ErrorsConstants.CREDIT_VALUE_IS_LESS_THAN_OR_ZERO);
+        assertEquals(businessException.getMessage(), ErrorsConstants.TRANSFER_VALUE_IS_LESS_OR_EQUAL_THAN_ZERO);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class CreditTest {
         BusinessException businessException = assertThrows(BusinessException.class,
                 () -> this.account.credit(BigDecimal.valueOf(-1.0)));
 
-        assertEquals(businessException.getMessage(), ErrorsConstants.CREDIT_VALUE_IS_LESS_THAN_OR_ZERO);
+        assertEquals(businessException.getMessage(), ErrorsConstants.TRANSFER_VALUE_IS_LESS_OR_EQUAL_THAN_ZERO);
     }
 
     @Test
