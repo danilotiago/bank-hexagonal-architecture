@@ -12,6 +12,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>bank-domain</artifactId>
+    <artifactId>bank-application</artifactId>
 
 </project>

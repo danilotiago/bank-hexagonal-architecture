@@ -13,17 +13,19 @@
 
 	<groupId>app.projetaria</groupId>
 	<artifactId>bank</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>bank</name>
 	<description>A bank project using hexagonal architecture</description>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.version>1.0.0</project.version>
 		<java.version>11</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<org.apache.maven.plugins.version>3.8.1</org.apache.maven.plugins.version>
-		<junit.jupiter.version>5.4.1</junit.jupiter.version>
-		<junit.platform.version>1.4.1</junit.platform.version>
+		<junit.jupiter.version>5.3.1</junit.jupiter.version>
 		<lombok.version>1.18.20</lombok.version>
 	</properties>
 
@@ -32,7 +34,7 @@
 		<!-- SPRING BOOT DEPENDENCIES -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
@@ -44,15 +46,15 @@
 		<!-- JUNIT DEPENDENCIES -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
+			<artifactId>junit-jupiter-api</artifactId>
 			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-runner</artifactId>
-			<version>${junit.platform.version}</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -71,6 +73,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>app.projetaria.bank.Application</mainClass>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -92,6 +97,7 @@
 	</build>
 
 	<modules>
+		<module>bank-application</module>
 		<module>bank-domain</module>
 	</modules>
 

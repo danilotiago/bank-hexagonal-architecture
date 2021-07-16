@@ -1,6 +1,7 @@
-package app.projetaria.domain;
+package app.projetaria.bank.domain;
 
-import app.projetaria.exceptions.BusinessException;
+import app.projetaria.bank.constants.ErrorsConstants;
+import app.projetaria.bank.exceptions.BusinessException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -27,11 +28,11 @@ public class Account {
     public void credit(BigDecimal value) throws BusinessException {
 
         if (isNull(value)) {
-            throw new BusinessException("O valor para efetuar o crédito é obrigatório");
+            throw new BusinessException(ErrorsConstants.CREDIT_VALUE_IS_REQUIRED);
         }
 
         if (value.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new BusinessException("O valor para efetuar o crédito deve ser maior que zero");
+            throw new BusinessException(ErrorsConstants.CREDIT_VALUE_IS_LESS_THAN_OR_ZERO);
         }
 
         balance = balance.add(value);
@@ -41,15 +42,15 @@ public class Account {
     public void debit(BigDecimal value) throws BusinessException {
 
         if (isNull(value)) {
-            throw new BusinessException("O valor para efetuar o débito é obrigatório");
+            throw new BusinessException(ErrorsConstants.DEBIT_VALUE_IS_REQUIRED);
         }
 
         if (value.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new BusinessException("O valor para efetuar o débito deve ser maior que zero");
+            throw new BusinessException(ErrorsConstants.DEBIT_VALUE_IS_LESS_THAN_OR_ZERO);
         }
 
         if (balance.compareTo(value) < 0) {
-            throw new BusinessException("Saldo insuficiente para efetuar o débito");
+            throw new BusinessException(ErrorsConstants.INSUFICIENT_FOUNDS);
         }
 
         balance = balance.subtract(value);

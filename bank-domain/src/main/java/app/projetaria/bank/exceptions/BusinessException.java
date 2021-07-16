@@ -1,4 +1,4 @@
-package app.projetaria.exceptions;
+package app.projetaria.bank.exceptions;
 
 public class BusinessException extends RuntimeException {
 
