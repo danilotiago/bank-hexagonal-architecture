@@ -19,3 +19,7 @@
 
     module: bank-service
     app.projetaria.bank.domainservices.Transfer
+
+Referências: <br>
+https://www.udemy.com/course/arquitetura-hexagonal-com-java-1/ <br>
+https://reflectoring.io/spring-hexagonal/

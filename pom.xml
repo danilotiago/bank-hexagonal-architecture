@@ -30,6 +30,12 @@
 		<log4j.version>2.7</log4j.version>
 	</properties>
 
+	<modules>
+		<module>bank-application</module>
+		<module>bank-domain</module>
+		<module>bank-web</module>
+	</modules>
+
 	<dependencies>
 
 		<!-- SPRING BOOT DEPENDENCIES -->
@@ -93,7 +99,10 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<mainClass>app.projetaria.bank.Application</mainClass>
+
+					<!-- to repackage modules -->
 					<classifier>exec</classifier>
+
 				</configuration>
 			</plugin>
 			<plugin>
@@ -114,10 +123,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<modules>
-		<module>bank-application</module>
-		<module>bank-domain</module>
-	</modules>
 
 </project>
