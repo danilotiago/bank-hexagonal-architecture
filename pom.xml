@@ -28,6 +28,7 @@
 		<junit.jupiter.version>5.3.1</junit.jupiter.version>
 		<lombok.version>1.18.20</lombok.version>
 		<log4j.version>2.7</log4j.version>
+		<mysql.version>8.0.19</mysql.version>
 	</properties>
 
 	<modules>
@@ -53,6 +54,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- MYSQL DEPENDENCIES -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- JUNIT DEPENDENCIES -->
@@ -93,6 +102,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

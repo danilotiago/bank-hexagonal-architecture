@@ -15,7 +15,7 @@ import java.util.Map;
 
 import static java.util.Objects.isNull;
 
-@Profile({"test"})
+@Profile({"test", "local"})
 @Repository
 public class AccountRepositoryFakeAdapterImpl implements AccountRepository {
 

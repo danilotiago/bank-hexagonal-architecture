@@ -14,4 +14,13 @@
 
     <artifactId>bank-application</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>app.projetaria</groupId>
+            <artifactId>bank-web</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
 </project>
