@@ -6,7 +6,6 @@ import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
 import app.projetaria.bank.ports.repository.AccountRepository;
 import app.projetaria.bank.ports.usecase.TransferUseCase;
-import app.projetaria.bank.services.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,13 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 import static java.util.Objects.isNull;
 
 @Component
-public class Transfer implements TransferUseCase {
+public class TransferUseCaseImpl implements TransferUseCase {
 
     @Autowired
     private AccountRepository repository;
 
     @Autowired
-    private TransferService transferService;
+    private app.projetaria.bank.services.TransferService transferService;
 
     @Override
     public Account get(Integer number) {

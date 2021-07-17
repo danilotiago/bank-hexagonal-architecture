@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("Regras de transferência entre contas")
-public class TransferUseCaseServiceAmountTest {
+public class TransferServiceUseCaseImplUseCaseAmountTest {
 
     private TransferService transferService;
     private Account debit;

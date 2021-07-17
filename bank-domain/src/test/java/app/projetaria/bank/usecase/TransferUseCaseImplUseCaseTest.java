@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ContextConfiguration(classes = RunConfiguration.class)
 @ActiveProfiles(profiles = "test")
 @DisplayName("Caso de uso - Efetuar transferência entre contas")
-public class TransferUseCaseTest {
+public class TransferUseCaseImplUseCaseTest {
 
     @Autowired
     private TransferUseCase transferUseCase;

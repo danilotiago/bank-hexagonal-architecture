@@ -3,13 +3,13 @@ package app.projetaria.bank.services;
 import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
 import static java.util.Objects.isNull;
 
-@Service
+@Component
 public class TransferService {
 
     public void transferAmount(BigDecimal value, Account debit, Account credit) {
