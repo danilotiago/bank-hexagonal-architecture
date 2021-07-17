@@ -21,5 +21,10 @@
     app.projetaria.bank.domainservices.Transfer
 
 Referências: <br>
+
+<h6>Hexagonal</h6>
 https://www.udemy.com/course/arquitetura-hexagonal-com-java-1/ <br>
 https://reflectoring.io/spring-hexagonal/
+
+<h6>Beans</h6>
+https://reflectoring.io/spring-boot-conditionals/
