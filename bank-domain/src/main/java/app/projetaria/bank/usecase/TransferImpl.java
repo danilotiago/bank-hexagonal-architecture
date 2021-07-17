@@ -1,9 +1,9 @@
-package app.projetaria.bank.adapters.usecase;
+package app.projetaria.bank.usecase;
 
 import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
-import app.projetaria.bank.ports.conduct.AccountRepository;
+import app.projetaria.bank.ports.repository.AccountRepository;
 import app.projetaria.bank.ports.usecase.Transfer;
 import app.projetaria.bank.services.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;

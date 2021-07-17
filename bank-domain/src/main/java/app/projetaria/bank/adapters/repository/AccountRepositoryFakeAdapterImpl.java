@@ -1,9 +1,9 @@
-package app.projetaria.bank.adapters.conduct;
+package app.projetaria.bank.adapters.repository;
 
 import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
-import app.projetaria.bank.ports.conduct.AccountRepository;
+import app.projetaria.bank.ports.repository.AccountRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Profile;
