@@ -1,10 +1,11 @@
 package app.projetaria.bank.usecase;
 
+import app.projetaria.bank.command.TransferCommand;
 import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
 import app.projetaria.bank.ports.repository.AccountRepository;
-import app.projetaria.bank.ports.usecase.Transfer;
+import app.projetaria.bank.ports.usecase.TransferUseCase;
 import app.projetaria.bank.services.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,7 @@ import java.math.BigDecimal;
 import static java.util.Objects.isNull;
 
 @Component
-public class TransferImpl implements Transfer {
+public class Transfer implements TransferUseCase {
 
     @Autowired
     private AccountRepository repository;
@@ -30,27 +31,27 @@ public class TransferImpl implements Transfer {
 
     @Override
     @Transactional
-    public void transfer(BigDecimal value, Integer debitNumber, Integer creditNumber) {
+    public void transfer(TransferCommand command) {
 
-        if (isNull(value)) {
+        if (isNull(command.getValue())) {
             throw new BusinessException(ErrorsConstants.TRANSFER_VALUE_IS_REQUIRED);
         }
 
-        if (isNull(debitNumber)) {
+        if (isNull(command.getDebitAccount())) {
             throw new BusinessException(ErrorsConstants.ACCOUNT_DEBIT_IS_REQUIRED);
         }
 
-        if (isNull(creditNumber)) {
+        if (isNull(command.getCreditAccount())) {
             throw new BusinessException(ErrorsConstants.ACCOUNT_CREDIT_IS_REQUIRED);
         }
 
-        Account debit = this.get(debitNumber);
+        Account debit = this.get(command.getDebitAccount());
 
         if (isNull(debit)) {
             throw new BusinessException(ErrorsConstants.ACCOUNT_DEBIT_NOT_FOUND);
         }
 
-        Account credit = this.get(creditNumber);
+        Account credit = this.get(command.getCreditAccount());
 
         if (isNull(credit)) {
             throw new BusinessException(ErrorsConstants.ACCOUNT_CREDIT_NOT_FOUND);
@@ -60,7 +61,7 @@ public class TransferImpl implements Transfer {
             throw new BusinessException(ErrorsConstants.TRANSFER_SAME_ACCOUNT_IS_NOT_AUTHORIZED);
         }
 
-        this.transferService.transferAmount(value, debit, credit);
+        this.transferService.transferAmount(command.getValue(), debit, credit);
         this.repository.update(debit);
         this.repository.update(credit);
      }
