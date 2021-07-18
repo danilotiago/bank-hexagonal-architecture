@@ -11,10 +11,10 @@ import java.math.BigDecimal;
 public class TransferRequestDto {
 
     @JsonProperty("debit_account")
-    private Integer creditAccount;
+    private Integer debitAccount;
 
     @JsonProperty("credit_account")
-    private Integer debitAccount;
+    private Integer creditAccount;
 
     @JsonProperty("amount_value")
     private BigDecimal amountValue;
