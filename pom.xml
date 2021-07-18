@@ -29,13 +29,15 @@
 		<lombok.version>1.18.20</lombok.version>
 		<log4j.version>2.7</log4j.version>
 		<mysql.version>8.0.19</mysql.version>
+		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 	</properties>
 
 	<modules>
 		<module>bank-application</module>
 		<module>bank-domain</module>
 		<module>bank-web</module>
-	</modules>
+        <module>bank-database</module>
+    </modules>
 
 	<dependencies>
 
@@ -87,6 +89,13 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- MAPSTRUCT -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
+
 		<!-- LOG4J -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -102,12 +111,6 @@
 	</dependencies>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -132,6 +135,11 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 							<version>${lombok.version}</version>
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${org.mapstruct.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>

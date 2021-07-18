@@ -4,6 +4,7 @@ import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.exceptions.BusinessException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import static java.util.Objects.isNull;
@@ -11,6 +12,7 @@ import static java.util.Objects.isNull;
 import java.math.BigDecimal;
 
 @Getter
+@Setter
 @ToString
 @AllArgsConstructor
 public class Account {

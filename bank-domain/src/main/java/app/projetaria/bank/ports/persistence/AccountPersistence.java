@@ -1,8 +1,8 @@
-package app.projetaria.bank.ports.repository;
+package app.projetaria.bank.ports.persistence;
 
 import app.projetaria.bank.domain.Account;
 
-public interface AccountRepository {
+public interface AccountPersistence {
 
     Account get(Integer number);
 

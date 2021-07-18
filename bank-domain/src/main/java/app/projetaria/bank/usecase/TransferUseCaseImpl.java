@@ -4,7 +4,7 @@ import app.projetaria.bank.command.TransferCommand;
 import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
-import app.projetaria.bank.ports.repository.AccountRepository;
+import app.projetaria.bank.ports.persistence.AccountPersistence;
 import app.projetaria.bank.ports.usecase.TransferUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ import static java.util.Objects.isNull;
 public class TransferUseCaseImpl implements TransferUseCase {
 
     @Autowired
-    private AccountRepository repository;
+    private AccountPersistence repository;
 
     @Autowired
     private app.projetaria.bank.services.TransferService transferService;

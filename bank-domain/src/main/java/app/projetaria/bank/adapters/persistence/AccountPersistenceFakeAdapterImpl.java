@@ -1,9 +1,9 @@
-package app.projetaria.bank.adapters.repository;
+package app.projetaria.bank.adapters.persistence;
 
 import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
-import app.projetaria.bank.ports.repository.AccountRepository;
+import app.projetaria.bank.ports.persistence.AccountPersistence;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Profile;
@@ -17,13 +17,13 @@ import static java.util.Objects.isNull;
 
 @Profile({"test"})
 @Repository
-public class AccountRepositoryFakeAdapterImpl implements AccountRepository {
+public class AccountPersistenceFakeAdapterImpl implements AccountPersistence {
 
-    private static final Logger logger = LogManager.getLogger(AccountRepositoryFakeAdapterImpl.class);
+    private static final Logger logger = LogManager.getLogger(AccountPersistenceFakeAdapterImpl.class);
 
     private Map<Integer, Account> repository = new HashMap<>();
 
-    public AccountRepositoryFakeAdapterImpl() {
+    public AccountPersistenceFakeAdapterImpl() {
         this.repository.put(10, new Account(10, BigDecimal.ONE, "Correntista Um"));
         this.repository.put(20, new Account(20, BigDecimal.ZERO, "Correntista Dois"));
         this.repository.put(30, new Account(30, BigDecimal.TEN, "Correntista Três"));

@@ -5,7 +5,7 @@ import app.projetaria.bank.command.TransferCommand;
 import app.projetaria.bank.constants.ErrorsConstants;
 import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.exceptions.BusinessException;
-import app.projetaria.bank.ports.repository.AccountRepository;
+import app.projetaria.bank.ports.persistence.AccountPersistence;
 import app.projetaria.bank.ports.usecase.TransferUseCase;
 import app.projetaria.bank.services.TransferService;
 import org.junit.jupiter.api.DisplayName;
@@ -31,7 +31,7 @@ public class TransferUseCaseImplUseCaseTest {
     private TransferUseCase transferUseCase;
 
     @Mock
-    private AccountRepository accountRepository;
+    private AccountPersistence accountPersistence;
 
     @Mock
     private TransferService transferService;

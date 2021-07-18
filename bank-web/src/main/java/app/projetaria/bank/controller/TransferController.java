@@ -1,9 +1,11 @@
 package app.projetaria.bank.controller;
 
 import app.projetaria.bank.command.TransferCommand;
+import app.projetaria.bank.domain.Account;
 import app.projetaria.bank.dto.AccountResponseDto;
 import app.projetaria.bank.dto.TransferRequestDto;
 import app.projetaria.bank.dto.TransferResponseDto;
+import app.projetaria.bank.mapper.AccountDtoMapper;
 import app.projetaria.bank.ports.usecase.TransferUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +21,11 @@ public class TransferController {
     @GetMapping("/{account_number}")
     public ResponseEntity<AccountResponseDto> get(@PathVariable(name = "account_number") Integer accountNumber) {
 
-        this.transferUseCase.get(accountNumber);
+        Account account = this.transferUseCase.get(accountNumber);
 
-        return null;
+        AccountResponseDto response = AccountDtoMapper.INSTANCE.accountResponseDto(account);
+
+        return ResponseEntity.ok().body(response);
     }
 
     @PostMapping

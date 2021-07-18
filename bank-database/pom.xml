@@ -12,19 +12,13 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>bank-application</artifactId>
+    <artifactId>bank-database</artifactId>
 
     <dependencies>
 
         <dependency>
             <groupId>app.projetaria</groupId>
-            <artifactId>bank-web</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>app.projetaria</groupId>
-            <artifactId>bank-database</artifactId>
+            <artifactId>bank-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
 
